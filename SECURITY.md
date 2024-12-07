@@ -2,7 +2,7 @@
 
 ## Supported Versions
 
-This repository contains the source code for [Hendrix's Better Christmas Chests](https://modrinth.com/mod/hendrixs-better-christmas-chests).
+This repository contains the source code for [Hendrix's Better Christmas Chests](https://curseforge.com/minecraft/mc-mods/hendrixs-better-christmas-chests).
 
 Only latest major release (and relative minors) will be supported. 
 
