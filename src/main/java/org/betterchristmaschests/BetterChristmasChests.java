@@ -5,7 +5,7 @@ import net.minecraft.util.Identifier;
 
 /**
  * Better Christmas Chests.
- * Make all chests and containers have a special texture when it's Christmas
+ * Make all chests have a special texture when it's Christmas
  */
 public final class BetterChristmasChests implements ClientModInitializer {
 
