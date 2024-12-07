@@ -8,7 +8,7 @@
 
 Makes Christmas Chests consistent on Christmas and adds a special texture for Ender Chests!
 
-<img src="./docs/chests.png" alt="Pale Garden Fog">
+<img src="./docs/chests.png" alt="Christmas Chests">
 
 -------------------------
 
