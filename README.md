@@ -34,7 +34,7 @@ No additional mods are required.
 -------------------------
 ### 🖥 Downloads
 
-You can download Better Christmas Chests on [CurseForge](https://www.curseforge.com/minecraft/mc-mods/hendrixs-better-christmas-chests) or [Modrinth](https://modrinth.com/project/hendrixs-better-christmas-chests/versions).
+You can download Better Christmas Chests on [CurseForge](https://www.curseforge.com/minecraft/mc-mods/hendrixs-better-christmas-chests) or [Modrinth](https://modrinth.com/mod/hendrixs-better-christmas-chests/versions).
 
 **I will post new releases only there**.
 
