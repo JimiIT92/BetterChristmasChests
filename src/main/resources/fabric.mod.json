@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "betterchristmaschests",
+  "version": "${version}",
+  "name": "Hendrix's Better Christmas Chests",
+  "description": "Make all chests and containers have a special texture when it's Christmas",
+  "authors": [
+    "JimiIT92"
+  ],
+  "contact": {
+    "website": "https://modrinth.com/mod/hendrix",
+    "repo": "https://github.com/JimiIT92/BetterChristmasChests"
+  },
+  "license": "MIT",
+  "icon": "assets/betterchristmaschests/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "org.betterchristmaschests.BetterChristmasChests"
+    ],
+    "modmenu": [
+      "org.betterchristmaschests.config.BCCModMenuIntegration"
+    ]
+  },
+  "mixins": [
+    "betterchristmaschests.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
