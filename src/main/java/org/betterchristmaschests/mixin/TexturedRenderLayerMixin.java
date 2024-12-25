@@ -26,7 +26,7 @@ public class TexturedRenderLayerMixin {
      * @param callbackInfoReturnable The {@link CallbackInfoReturnable<SpriteIdentifier> Sprite Identifier Callback Info Returnable}
      */
     @Inject(at = @At(value = "RETURN"), method = "getChestTextureId(Lnet/minecraft/block/entity/BlockEntity;Lnet/minecraft/block/enums/ChestType;Z)Lnet/minecraft/client/util/SpriteIdentifier;", cancellable = true)
-    private static void getChestTextureId(final BlockEntity blockEntity, final ChestType type, final boolean christmas, CallbackInfoReturnable<SpriteIdentifier> callbackInfoReturnable) {
+    private static void getChestTextureId(final BlockEntity blockEntity, final ChestType type, final boolean christmas, final CallbackInfoReturnable<SpriteIdentifier> callbackInfoReturnable) {
         if(christmas) {
             if (blockEntity instanceof EnderChestBlockEntity) {
                 callbackInfoReturnable.setReturnValue(new SpriteIdentifier(TexturedRenderLayers.CHEST_ATLAS_TEXTURE, BetterChristmasChests.identifier("entity/chest/ender")));
