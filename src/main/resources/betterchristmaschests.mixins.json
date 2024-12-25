@@ -6,11 +6,11 @@
   "mixins": [
   ],
   "client": [
-    "BoatEntityRendererMixin",
-    "DonkeyEntityRendererMixin",
-    "LlamaEntityRendererMixin",
-    "RaftEntityRendererMixin",
-    "TexturedRenderLayerMixin"
+    "BoatRendererMixin",
+    "DonkeyRendererMixin",
+    "LlamaRendererMixin",
+    "RaftRendererMixin",
+    "SheetsMixin"
   ],
   "injectors": {
     "defaultRequire": 1

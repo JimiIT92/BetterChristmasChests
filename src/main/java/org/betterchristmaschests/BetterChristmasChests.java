@@ -1,13 +1,16 @@
 package org.betterchristmaschests;
 
-import net.fabricmc.api.ClientModInitializer;
-import net.minecraft.util.Identifier;
+import net.minecraft.resources.ResourceLocation;
+import net.neoforged.fml.common.Mod;
+
+import java.util.Calendar;
 
 /**
  * Better Christmas Chests.
  * Make all chests and containers have a special texture when it's Christmas
  */
-public final class BetterChristmasChests implements ClientModInitializer {
+@Mod(BetterChristmasChests.MOD_ID)
+public final class BetterChristmasChests {
 
     /**
      * The {@link String Mod Id}
@@ -15,20 +18,23 @@ public final class BetterChristmasChests implements ClientModInitializer {
     public static final String MOD_ID = "betterchristmaschests";
 
     /**
-     * Initialize the mod
+     * Get a {@link ResourceLocation modded Resource Location}
+     *
+     * @param resourceName The {@link String resource name}
+     * @return The {@link ResourceLocation modded Resource Location}
      */
-    @Override
-    public void onInitializeClient() {
+    public static ResourceLocation resourceLocation(final String resourceName) {
+        return ResourceLocation.fromNamespaceAndPath(MOD_ID, resourceName);
     }
 
     /**
-     * Get a {@link Identifier modded Identifier}
+     * Check whether is around Christmas
      *
-     * @param resourceName The {@link String resource name}
-     * @return The {@link Identifier modded Identifier}
+     * @return {@link Boolean True if is around Christmas}
      */
-    public static Identifier identifier(final String resourceName) {
-        return Identifier.of(MOD_ID, resourceName);
+    public static boolean isAroundChristmas() {
+        final Calendar calendar = Calendar.getInstance();
+        return calendar.get(Calendar.MONTH) + 1 == 12 && calendar.get(Calendar.DATE) >= 24 && calendar.get(Calendar.DATE) <= 26;
     }
 
 }
