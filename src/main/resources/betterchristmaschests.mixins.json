@@ -7,6 +7,7 @@
   ],
   "client": [
     "BoatEntityRendererMixin",
+    "DonkeyEntityRendererMixin",
     "LlamaEntityRendererMixin",
     "RaftEntityRendererMixin",
     "TexturedRenderLayerMixin"
