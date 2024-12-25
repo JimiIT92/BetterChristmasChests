@@ -1,9 +1,7 @@
 package org.betterchristmaschests;
 
-import me.shedaniel.autoconfig.AutoConfig;
-import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import net.fabricmc.api.ClientModInitializer;
-import org.betterchristmaschests.config.BCCConfig;
+import net.minecraft.util.Identifier;
 
 /**
  * Better Christmas Chests.
@@ -17,28 +15,20 @@ public final class BetterChristmasChests implements ClientModInitializer {
     public static final String MOD_ID = "betterchristmaschests";
 
     /**
-     * The {@link BCCConfig Mod Configuration}
-     */
-    private static BCCConfig CONFIG;
-
-    /**
      * Initialize the mod
      */
     @Override
     public void onInitializeClient() {
-        AutoConfig.register(BCCConfig.class, GsonConfigSerializer::new);
     }
 
     /**
-     * Get the {@link BCCConfig Mod Configuration}
+     * Get a {@link Identifier modded Identifier}
      *
-     * @return The {@link #CONFIG Mod Configuration}
+     * @param resourceName The {@link String resource name}
+     * @return The {@link Identifier modded Identifier}
      */
-    public static BCCConfig config() {
-        if(CONFIG == null) {
-            CONFIG = AutoConfig.getConfigHolder(BCCConfig.class).getConfig();
-        }
-        return CONFIG;
+    public static Identifier identifier(final String resourceName) {
+        return Identifier.of(MOD_ID, resourceName);
     }
 
 }

@@ -6,6 +6,9 @@
   "mixins": [
   ],
   "client": [
+    "BoatEntityRendererMixin",
+    "RaftEntityRendererMixin",
+    "TexturedRenderLayerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

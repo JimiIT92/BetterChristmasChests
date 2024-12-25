@@ -17,9 +17,6 @@
   "entrypoints": {
     "client": [
       "org.betterchristmaschests.BetterChristmasChests"
-    ],
-    "modmenu": [
-      "org.betterchristmaschests.config.BCCModMenuIntegration"
     ]
   },
   "mixins": [
