@@ -1,10 +1,10 @@
 package org.betterchristmaschests.mixin;
 
 import net.minecraft.client.model.EntityModel;
-import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.rendertype.RenderType;
 import net.minecraft.client.renderer.entity.BoatRenderer;
 import net.minecraft.client.renderer.entity.state.BoatRenderState;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import org.betterchristmaschests.BetterChristmasChests;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -25,9 +25,9 @@ public final class BoatRendererMixin {
     @Shadow @Final private EntityModel<BoatRenderState> model;
 
     /**
-     * The {@link ResourceLocation Boat Texture}
+     * The {@link Identifier Boat Texture}
      */
-    @Shadow @Final private ResourceLocation texture;
+    @Shadow @Final private Identifier texture;
 
     /**
      * Render the Christmas Chest Texture on Boats with Chests

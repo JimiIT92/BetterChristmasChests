@@ -2,7 +2,7 @@ package org.betterchristmaschests.mixin;
 
 import net.minecraft.client.renderer.entity.LlamaRenderer;
 import net.minecraft.client.renderer.entity.state.LlamaRenderState;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import org.betterchristmaschests.BetterChristmasChests;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -19,10 +19,10 @@ public final class LlamaRendererMixin {
      * Render Christmas Chests on Llamas
      *
      * @param llamaRenderState The {@link LlamaRenderState Llama Render State}
-     * @param callbackInfoReturnable The {@link CallbackInfoReturnable<ResourceLocation> Resource Location Callback Info Returnable}
+     * @param callbackInfoReturnable The {@link CallbackInfoReturnable<Identifier> Resource Location Callback Info Returnable}
      */
-    @Inject(at = @At(value = "RETURN"), method = "getTextureLocation(Lnet/minecraft/client/renderer/entity/state/LlamaRenderState;)Lnet/minecraft/resources/ResourceLocation;", cancellable = true)
-    private void getTextureLocation(final LlamaRenderState llamaRenderState, final CallbackInfoReturnable<ResourceLocation> callbackInfoReturnable) {
+    @Inject(at = @At(value = "RETURN"), method = "getTextureLocation(Lnet/minecraft/client/renderer/entity/state/LlamaRenderState;)Lnet/minecraft/resources/Identifier;", cancellable = true)
+    private void getTextureLocation(final LlamaRenderState llamaRenderState, final CallbackInfoReturnable<Identifier> callbackInfoReturnable) {
         if(BetterChristmasChests.isAroundChristmas()) {
             callbackInfoReturnable.setReturnValue(BetterChristmasChests.resourceLocation(callbackInfoReturnable.getReturnValue().getPath()));
         }

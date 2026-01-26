@@ -1,6 +1,6 @@
 package org.betterchristmaschests;
 
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.neoforged.fml.common.Mod;
 
 import java.util.Calendar;
@@ -18,13 +18,13 @@ public final class BetterChristmasChests {
     public static final String MOD_ID = "betterchristmaschests";
 
     /**
-     * Get a {@link ResourceLocation modded Resource Location}
+     * Get a {@link Identifier modded Resource Location}
      *
      * @param resourceName The {@link String resource name}
-     * @return The {@link ResourceLocation modded Resource Location}
+     * @return The {@link Identifier modded Resource Location}
      */
-    public static ResourceLocation resourceLocation(final String resourceName) {
-        return ResourceLocation.fromNamespaceAndPath(MOD_ID, resourceName);
+    public static Identifier resourceLocation(final String resourceName) {
+        return Identifier.fromNamespaceAndPath(MOD_ID, resourceName);
     }
 
     /**
