@@ -2,17 +2,19 @@
   "required": true,
   "minVersion": "0.8",
   "package": "org.betterchristmaschests.mixin",
-  "compatibilityLevel": "JAVA_21",
+  "compatibilityLevel": "JAVA_25",
   "mixins": [
   ],
   "client": [
     "BoatRendererMixin",
     "DonkeyRendererMixin",
     "LlamaRendererMixin",
-    "RaftRendererMixin",
     "SheetsMixin"
   ],
   "injectors": {
     "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
   }
 }

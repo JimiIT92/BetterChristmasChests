@@ -1,9 +1,8 @@
 package org.betterchristmaschests;
 
 import net.minecraft.resources.Identifier;
+import net.minecraft.util.SpecialDates;
 import net.neoforged.fml.common.Mod;
-
-import java.util.Calendar;
 
 /**
  * Better Christmas Chests.
@@ -33,8 +32,7 @@ public final class BetterChristmasChests {
      * @return {@link Boolean True if is around Christmas}
      */
     public static boolean isAroundChristmas() {
-        final Calendar calendar = Calendar.getInstance();
-        return calendar.get(Calendar.MONTH) + 1 == 12 && calendar.get(Calendar.DATE) >= 24 && calendar.get(Calendar.DATE) <= 26;
+        return SpecialDates.isExtendedChristmas();
     }
 
 }
