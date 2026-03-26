@@ -1,7 +1,8 @@
 package org.betterchristmaschests;
 
 import net.fabricmc.api.ClientModInitializer;
-import net.minecraft.util.Identifier;
+import net.minecraft.resources.Identifier;
+import net.minecraft.util.SpecialDates;
 
 /**
  * Better Christmas Chests.
@@ -28,7 +29,16 @@ public final class BetterChristmasChests implements ClientModInitializer {
      * @return The {@link Identifier modded Identifier}
      */
     public static Identifier identifier(final String resourceName) {
-        return Identifier.of(MOD_ID, resourceName);
+        return Identifier.fromNamespaceAndPath(MOD_ID, resourceName);
+    }
+
+    /**
+     * Check whether is Christmas or not
+     *
+     * @return {@link Boolean True} if is Christmas
+     */
+    public static Boolean isChristmas() {
+        return SpecialDates.isExtendedChristmas();
     }
 
 }

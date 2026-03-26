@@ -1,36 +1,39 @@
 package org.betterchristmaschests.mixin;
 
-import com.mojang.datafixers.types.templates.Check;
-import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.EnderChestBlockEntity;
-import net.minecraft.block.enums.ChestType;
-import net.minecraft.client.render.TexturedRenderLayers;
-import net.minecraft.client.render.block.entity.ChestBlockEntityRenderer;
-import net.minecraft.client.render.block.entity.state.ChestBlockEntityRenderState;
-import net.minecraft.client.util.SpriteIdentifier;
+import net.minecraft.client.renderer.Sheets;
+import net.minecraft.client.renderer.SpriteMapper;
+import net.minecraft.client.renderer.blockentity.state.ChestRenderState;
+import net.minecraft.client.resources.model.sprite.SpriteId;
+import net.minecraft.world.level.block.state.properties.ChestType;
 import org.betterchristmaschests.BetterChristmasChests;
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 /**
- * Mixin class for the {@link TexturedRenderLayers Textured Render Layers} class
+ * Mixin class for the {@link Sheets Textured Render Layers} class
  */
-@Mixin(TexturedRenderLayers.class)
+@Mixin(Sheets.class)
 public class TexturedRenderLayerMixin {
+
+    @Shadow
+    @Final
+    public static SpriteMapper CHEST_MAPPER;
 
     /**
      * Render the Christmas Ender Chest Texture when it's Christmas
      *
-     * @param variant The {@link BlockEntity Chest Variant}
+     * @param variant The {@link ChestRenderState.ChestMaterialType Chest Variant}
      * @param type The {@link ChestType Chest Type}
-     * @param callbackInfoReturnable The {@link CallbackInfoReturnable<SpriteIdentifier> Sprite Identifier Callback Info Returnable}
+     * @param callbackInfoReturnable The {@link CallbackInfoReturnable<SpriteId> Sprite Identifier Callback Info Returnable}
      */
-    @Inject(at = @At(value = "RETURN"), method = "getChestTextureId(Lnet/minecraft/client/render/block/entity/state/ChestBlockEntityRenderState$Variant;Lnet/minecraft/block/enums/ChestType;)Lnet/minecraft/client/util/SpriteIdentifier;", cancellable = true)
-    private static void getChestTextureId(final ChestBlockEntityRenderState.Variant variant, final ChestType type, final CallbackInfoReturnable<SpriteIdentifier> callbackInfoReturnable) {
-        if(ChestBlockEntityRenderer.isAroundChristmas()) {
+    @Inject(at = @At(value = "RETURN"), method = "chooseSprite", cancellable = true)
+    private static void chooseSprite(final ChestRenderState.ChestMaterialType variant, final ChestType type, final CallbackInfoReturnable<SpriteId> callbackInfoReturnable) {
+        if(BetterChristmasChests.isChristmas()) {
             switch (variant) {
                 case ENDER_CHEST -> callbackInfoReturnable.setReturnValue(getChestId("ender", type));
                 case COPPER_UNAFFECTED -> callbackInfoReturnable.setReturnValue(getChestId("copper", type));
@@ -43,20 +46,20 @@ public class TexturedRenderLayerMixin {
     }
 
     /**
-     * Get the {@link SpriteIdentifier chest sprite identifier}
+     * Get the {@link SpriteId chest sprite identifier}
      *
      * @param name The {@link String base chest identifier name}
      * @param type The {@link ChestType chest type}
-     * @return The {@link SpriteIdentifier chest sprite identifier}
+     * @return The {@link SpriteId chest sprite identifier}
      */
     @Unique
-    private static SpriteIdentifier getChestId(final String name, final ChestType type) {
+    private static SpriteId getChestId(final String name, final ChestType type) {
         final String suffix = switch (type) {
             case SINGLE -> "";
             case LEFT -> "_left";
             case RIGHT -> "_right";
         };
-        return new SpriteIdentifier(TexturedRenderLayers.CHEST_ATLAS_TEXTURE, BetterChristmasChests.identifier("entity/chest/" + name + suffix));
+        return CHEST_MAPPER.apply(BetterChristmasChests.identifier(name + suffix));
     }
 
 }
