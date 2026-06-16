@@ -11,12 +11,14 @@ tasks.named('wrapper', Wrapper).configure {
 version = mod_version
 group = mod_group_id
 
+sourceSets.main.resources { srcDir 'src/generated/resources' }
+
 repositories {
     mavenLocal()
 }
 
 base {
-    archivesName = "${mod_name.replace(" ", "")}-NeoForge"
+    archivesName = "${mod_name.replace(" ", "")}-${minecraft_version}-NeoForge"
 }
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(25)
@@ -43,7 +45,6 @@ neoForge {
     }
 }
 
-sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 configurations {
     runtimeClasspath.extendsFrom localRuntime
