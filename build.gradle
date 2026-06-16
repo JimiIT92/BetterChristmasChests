@@ -34,15 +34,15 @@ tasks.withType(JavaCompile).configureEach {
 
 java {
     withSourcesJar()
-
     sourceCompatibility = JavaVersion.VERSION_25
     targetCompatibility = JavaVersion.VERSION_25
 }
 
 jar {
-    inputs.property "archivesName", project.base.archivesName
+    def projectName = project.name
+    inputs.property "projectName", projectName
 
     from("LICENSE") {
-        rename { "${it}_${project.archivesBaseName}" }
+        rename { "${it}_$projectName"}
     }
 }
