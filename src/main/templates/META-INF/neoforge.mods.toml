@@ -5,7 +5,7 @@ issueTrackerURL="https://github.com/JimiIT92/BetterChristmasChests/issues"
     version="${mod_version}"
     displayName="${mod_name}"
     displayURL="https://github.com/JimiIT92/BetterChristmasChests"
-    logoFile="assets/${mod_id}/icon.png"
+    iconFile="assets/${mod_id}/icon.png"
     authors="${mod_authors}"
     description='''${mod_description}'''
 
